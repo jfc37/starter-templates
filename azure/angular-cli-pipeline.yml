@@ -44,7 +44,7 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: 'dist/studio-ui'
+    PathtoPublish: 'dist/<app-name>'
     ArtifactName: 'web-app'
     publishLocation: 'Container'
   displayName: 'Publish Artifacts'
