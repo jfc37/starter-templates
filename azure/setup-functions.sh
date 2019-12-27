@@ -16,7 +16,9 @@ az functionapp create --resource-group $RESOURCEGROUP --consumption-plan-locatio
 --name $FUNCTIONAPP --storage-account $STORAGEACCOUNT --runtime node
 
 # Create new cosmo db
-az cosmosdb create --name $DBAccount --resource-group $RESOURCEGROUP
+az cosmosdb create --name $DBACCOUNT --resource-group $RESOURCEGROUP --kind MongoDB
+az cosmosdb mongodb database create --account-name $DBACCOUNT --name $DBNAME --resource-group $RESOURCEGROUP
+az cosmosdb mongodb collection create --account-name $DBACCOUNT --database-name $DBNAME --name users --resource-group $RESOURCEGROUP --shard users
 
 # Deploy local functions to azure
 npm run build:production
