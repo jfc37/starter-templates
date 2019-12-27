@@ -15,6 +15,9 @@ az storage account create --name $STORAGEACCOUNT --location australiasoutheast -
 az functionapp create --resource-group $RESOURCEGROUP --consumption-plan-location australiasoutheast \
 --name $FUNCTIONAPP --storage-account $STORAGEACCOUNT --runtime node
 
+# Create new cosmo db
+az cosmosdb create --name $DBAccount --resource-group $RESOURCEGROUP
+
 # Deploy local functions to azure
 npm run build:production
 func azure functionapp publish $FUNCTIONAPP
